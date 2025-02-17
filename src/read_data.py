@@ -13,7 +13,7 @@ import pylab as pl
 from sklearn.model_selection import train_test_split
 
 #%%
-def read_data(n_mfcc=13, trigger=False, domain='temporal', seed=None):
+def read_data(trigger=False, domain='temporal', seed=None):
   
     sns.set_context('talk')
     
@@ -22,9 +22,6 @@ def read_data(n_mfcc=13, trigger=False, domain='temporal', seed=None):
     
     if domain == 'temporal':
         X = pd.read_csv('./temporal_features_tsfel'+'_trigger_'+str(trigger)+'.csv', header=None)
-               
-    elif domain == 'mfcc':
-        X = pd.read_csv('./mfcc'+str(n_mfcc)+'_trigger_'+str(trigger)+'.csv', header=None)
         
     elif domain == 'statistical':
         X = pd.read_csv('./statistical_features'+'_trigger_'+str(trigger)+'.csv', header=None)
